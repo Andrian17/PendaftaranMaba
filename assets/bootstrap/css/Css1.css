@@ -1,0 +1,83 @@
+.tombol{
+    text-transform: uppercase;
+    border-radius: 40px;
+}
+
+/* jumbotron */
+.jumbotron{
+    /*background-image: url(img/bg1.jpg);
+    background-size: cover;
+    margin-top: -15px; */
+}
+.navbar-brand, .nav-link{
+    color: white !important;
+}
+
+a img{
+    width: 40px;
+    height: 40px;
+}
+
+@media (min-width: 992px){
+    .bgbody{
+    background-image: url('img/bg7-min.jpg');
+     margin-top: -65px;
+     background-size: cover;
+     box-sizing: border-box;
+    }
+
+    /*.bgbody{
+    background-image: url('img/bg7-min.jpg');
+     margin-top: -65px;
+     background-size: cover;
+    }
+*/
+
+   /*.bgbody{
+        background-image: url(img/bg2.jpg);
+       background-size: cover;
+       margin-top: -65px;
+       }*/
+
+       
+    .navbar-brand, .nav-link{
+        color: black !important;
+    }
+
+    .nav-link{
+        margin-right: 30px;
+        text-transform: uppercase;
+    }
+
+    .nav-link:hover::after{
+        content: '';
+        display: block;
+        border-bottom: 5px solid blue;
+        width: 85%;
+        margin: auto;
+        padding-bottom: 3px;
+        margin-bottom: -8px; 
+    }
+
+     a img{
+        width: 40px;
+        height: 40px;
+    }
+
+    h6{
+        margin-top: -18px;
+        
+    }
+
+    .spek{
+        margin-bottom: 40px;
+    }
+
+
+
+
+
+
+
+}
+
