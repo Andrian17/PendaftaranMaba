@@ -51,12 +51,12 @@
 				 		<td><span class="badge badge-danger">tutup</span></td>
 				 	</tr>
 				 	<tr>
-				 		<td>1</td>
+				 		<td>2</td>
 				 		<td>09 Desember 2020 s.d 31 Desember 2020</td>
 				 		<td><span class="badge badge-danger">tutp</span></td>
 				 	</tr>
 				 	<tr>
-				 		<td>1</td>
+				 		<td>3</td>
 				 		<td>01 Januari 2020 s.d 30 April 2021</td>
 				 		<td><span class="badge badge-success">buka</span></td>
 				 	</tr>

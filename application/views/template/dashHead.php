@@ -9,7 +9,7 @@
    <meta name="description" content="">
    <meta name="author" content="">
 
-   <title>Dashboard</title>
+   <title><?php echo $title ?></title>
 
    <!-- BOOTSTRAP -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -23,7 +23,7 @@
    <!-- Custom styles for this template-->
    <link href="<?php echo base_url() ?>/assets/css/sb-admin-2.min.css" rel="stylesheet">
 
-
+<link href="<?php echo base_url() ?>/assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
    <!-- date picker -->
    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
    <link href="<?php echo base_url() ?>/assets/css/bootstrap-datepicker.min.css" rel="stylesheet">

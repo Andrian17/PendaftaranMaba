@@ -31,7 +31,8 @@ class M_UAS extends CI_Model {
 
 	public function getByID($id)
 	{
-		return $this->db->get_where($this->table, ["id_user" => $id])->row_object();
+		return $this->db->get_where($this->table, ["id_user" => $id])->row_array();
+
 	}
 
 	public function updateStats($data, $id)
@@ -51,6 +52,17 @@ class M_UAS extends CI_Model {
 	{
 		return $this->db->update($this->table, $data, ['id' => $id]);
 	}
+
+	public function getJurusan($prodi)
+	{
+		return $this->db->get($this->table, ["jurusan" => $prodi])->row_object();
+	}
+
+	public function getdetail($id)
+	{
+		return $this->db->get_where($this->table, ["id" => $id])->row_array();
+	}
+
 
 }
 

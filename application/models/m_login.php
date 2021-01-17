@@ -8,7 +8,6 @@ class M_login extends CI_Model {
 
 	public function cekLogin($username, $password)
 	{
-		# code...
 		$this->db->where('username', $username);
 		$this->db->where('password', $password);
 		return $this->db->get($this->table);

@@ -1,5 +1,4 @@
 
-
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -20,49 +19,64 @@
       <div class="card-body">
         <div class="row">
           <!-- small box -->
-          <div class="col-lg-4 col-6">
-            <a href="#" class="nav-link">
-                <div class="small-box bg-info">
-                  <div class="inner">
-                    <span class="text-light ml-2">Daftar Mahasiswa</span>
+          <!-- box card tambah mhs -->
+          <div class="col-xl-4 col-md-6 mb-4">
+            <a href="<?php echo site_url('admin/add') ?>" class="nav-link">
+              <div class="card border-bottom-warning shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <span class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Tambah Mahasiswa</span>
+                      </div>
+                        <div class="col-auto icon">
+                          <i class="fas fa-user-plus fa-3x "></i>
+                        </div>
+                    </div>
                   </div>
-                  <div class="icon m-auto">
-                    <i class="fas fa-user-plus fa-4x" style="margin: 10px 10px;"></i>
-                  </div>
-                </div>
-            </a>
+              </div>
+              </a>
           </div>
-
-          <div class="col-lg-4 col-6">
-            <a href="#" class="nav-link">
-                <div class="small-box bg-success">
-                  <div class="inner">
-                    <span class="text-light ml-2">List Mahasiswa</span>
+          <!-- list mhs  -->
+          <div class="col-xl-4 col-md-6 mb-4">
+            <a href="<?php echo site_url('admin/Home') ?>" class="nav-link">
+              <div class="card border-bottom-info shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <span class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Daftar Mahasiswa</span>
+                      </div>
+                        <div class="col-auto icon">
+                          <i class="fas fa-users fa-3x"></i>
+                        </div>
+                    </div>
                   </div>
-                  <div class="icon m-auto">
-                    <i class="fas fa-users fa-4x" style="margin: 10px 10px;"></i>
-                  </div>
-                </div>
-            </a>
+              </div>
+              </a>
           </div>
-
-          <div class="col-lg-4 col-6">
-            <a href="#" class="nav-link">
-                <div class="small-box bg-danger">
-                  <div class="inner">
-                    <span class="text-light ml-2">Jurusan</span>
+          <!-- jurusan -->
+          <div class="col-xl-4 col-md-6 mb-4">
+            <a href="<?php echo site_url('admin/prodi') ?>" class="nav-link">
+              <div class="card border-bottom-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <span class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Jurusan</span>
+                      </div>
+                        <div class="col-auto icon">
+                          <i class="fas fa-project-diagram fa-3x"></i>
+                        </div>
+                    </div>
                   </div>
-                  <div class="icon m-auto">
-                    <i class="fas fa-project-diagram fa-4x" style="margin: 10px 10px;"></i>
-                  </div>
-                </div>
-            </a>
+              </div>
+              </a>
           </div>
 
         </div>
       </div>
     </div>
-
 
 
 <!-- Footer -->

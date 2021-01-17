@@ -1,4 +1,9 @@
+<?php 
+  $con = mysqli_connect('localhost', 'root', '', 'db_web_lanjut'); 
+  $prodi = mysqli_query($con,"select * from maba where confirm='0'");
+  $key1 = mysqli_num_rows($prodi);
 
+ ?>
       <!-- Sidebar -->
       <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -33,13 +38,16 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
               aria-expanded="true" aria-controls="collapseTwo">
               <i class="fas fa-users"></i>
+              <span class="badge badge-danger"><?php echo $key1; ?></span>
               <span>Manajement Mahasiswa</span>
+
+
             </a>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">Calon MABA:</h6>
                  <a class="collapse-item" href="<?php echo site_url('admin/add') ?>">Tambah Mahasiswa</a>
-                 <a class="collapse-item" href="<?php echo site_url('admin/Home') ?>">List Mahasiswa</a>
+                 <a class="collapse-item" href="<?php echo site_url('admin/Home') ?>">Daftar Mahasiswa</a>
              </div>
          </div>
      </li>
@@ -55,8 +63,8 @@
    data-parent="#accordionSidebar">
    <div class="bg-white py-2 collapse-inner rounded">
        <h6 class="collapse-header">Jurusan:</h6>
-       <a class="collapse-item" href="">Tambah Jurusan</a>
-       <a class="collapse-item" href="">Kelola Jurusan</a>
+       <a class="collapse-item" href="<?php echo site_url('admin/mainProdi') ?>">Kelola Jurusan</a>
+       <a class="collapse-item" href="<?php echo site_url('admin/prodi') ?>">ListBy Jurusan</a>
    </div>
 </div>
 </li>
@@ -113,7 +121,7 @@
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <span class="mr-2 d-none d-lg-inline text-gray-600 small">Andrian</span>
                      <img class="img-profile rounded-circle"
-                     src="img/undraw_profile.svg">
+                     src="<?php echo base_url() ?>assets/img/undraw_profile_3.svg">
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

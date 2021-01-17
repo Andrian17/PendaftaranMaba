@@ -1,10 +1,10 @@
 <div class="container">
-	<div class="card">
+	<div class="card ">
 		<div class="card card-header">
 			<h5>Selamat datang <?php echo $username; ?></h5>
 		</div>
 		<div class="card-body">
-			<?php if ($key->confirm == 0) { ?>
+			<?php if ($key['confirm'] == 0) { ?>
 				<div class="alert alert-danger" role="alert">
 					Silahkan Lakukan Pendaftran Ulang..!!
 					<a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-angle-double-right"></i></a>
@@ -20,34 +20,36 @@
 					<tr>
 						<th scope="col">Data</th>
 						<th scope="col">Pengguna</th>
+					<?php if ($key['confirm'] == 0): ?>
 						<th scope="col"><a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="ml-2 mr-2">Edit</span><i class="fas fa-user-edit"></i></a>
 						</th>
+					<?php endif; ?>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>Nama</td>
-						<td><?php echo $key->nama ?></td>
+						<td><?php echo $key['nama'] ?></td>
 					</tr>
 					<tr>
 						<td>Jenis Kelamin</td>
-						<td><?php echo $key->jenisKelamin ?></td>
+						<td><?php echo $key['jenisKelamin'] ?></td>
 					</tr>
 					<tr>
 						<td>Alamat</td>
-						<td><?php echo $key->alamat ?></td>
+						<td><?php echo $key['alamat'] ?></td>
 					</tr>
 					<tr>
 						<td>Taanggal Lahir</td>
-						<td><?php echo $key->tanggal ?></td>
+						<td><?php echo $key['tanggal'] ?></td>
 					</tr>
 					<tr>
 						<td>No hp :</td>
-						<td><?php echo $key->noHp ?></td>
+						<td><?php echo $key['noHp'] ?></td>
 					</tr>
 					<tr>
 						<td>Jurusan</td>
-						<td><?php echo $key->jurusan ?></td>
+						<td><?php echo $key['jurusan'] ?></td>
 					</tr>
 				</tbody>
 			</table>
@@ -71,15 +73,15 @@
 				</div>
 				<div class="modal-body">
 					<form action="<?php echo site_url('maba/edit') ?>" method="post">
-						<input type="hidden" value="<?php echo $key->id ?>" name="id">
+						<input type="hidden" value="<?php echo $key['id'] ?>" name="id">
 						<div class="mb-3">
 							<label for="Nama" class="form-label">Nama</label>
-							<input type="text" class="form-control" id="Nama" name="nama" autocomplete="off" value="<?php echo $key->nama ?>">
+							<input type="text" class="form-control" id="Nama" name="nama" autocomplete="off" value="<?php echo $key['nama'] ?>">
 						</div>
 						<div class="mb-3">
 							<label for="Jenis Kelamin" class="form-label">Jenis Kelamin</label>
 							<select class="form-select form-select-sm" aria-label="Default select example" name="JenisKelamin">
-								<option selected><?php echo $key->jenisKelamin ?></option>
+								<option selected><?php echo $key['jenisKelamin'] ?></option>
 								<option value="Laki-Laki">Laki-Laki</option>
 								<option value="Perempuan">Perempuan</option>
 
@@ -88,21 +90,21 @@
 
 						<div class="mb-3">
 							<label for="Alamat" class="form-label">Alamat</label>
-							<input type="text" class="form-control" id="Alamat" name="alamat" value="<?php echo $key->alamat ?>">
+							<input type="text" class="form-control" id="Alamat" name="alamat" value="<?php echo $key['alamat'] ?>">
 						</div>
 						<div class="mb-3">
 							<label>Date</label>
-							<input type="text" class="form-control" id="datepicker" name="tanggal" autocomplete="off" value="<?php echo $key->tanggal ?>">      
+							<input type="text" class="form-control" id="datepicker" name="tanggal" autocomplete="off" value="<?php echo $key['tanggal'] ?>">      
 						</div>
 
 						<div class="mb-3">
 							<label for="No HP" class="form-label">No HP</label>
-							<input type="number" class="form-control" id="No HP" name="noHP" value="<?php echo $key->noHp; ?>">
+							<input type="number" class="form-control" id="No HP" name="noHP" value="<?php echo $key['noHp']; ?>">
 						</div>
 						<div class="mb-3">
 							<label for="Nama" class="form-label">Jurusan</label>
 							<select class="form-select form-select-sm" aria-label="Default select example" name="Jurusan">
-								<option selected><?php echo $key->jurusan ?></option>
+								<option selected><?php echo $key['jurusan'] ?></option>
 								<?php foreach ($prodi as $key) : ?>
 									<option value="<?php echo $key->jurusan ?>"><?php echo $key->jurusan ?></option>
 								<?php endforeach; ?>

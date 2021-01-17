@@ -30,13 +30,14 @@ class Maba extends CI_Controller {
 		$data['username'] = $this->session->userdata('username');
 		$data['prodi'] = $this->m_UAS->m_jurusan();
 		
-		$data['key'] = $this->m_UAS->getById($id);
+		$data['key'] = $this->m_UAS->getByID($id);
 
 		$cek_user = $this->db->get_where('user', ['id_user' =>$id])->row_array();
 		if ($cek_user['status'] == 0 ) {
 			redirect('maba/add','refresh');
 			//var_dump($cek_user['status']);
 		}else{
+			//var_dump($id);
 			$this->load->view('template/header', $title);
 			$this->load->view('template/nav');
 			$this->load->view('maba/indexmaba', $data);
@@ -67,6 +68,18 @@ class Maba extends CI_Controller {
 	}
 
 	public function prosesAdd(){
+		$id_jur;
+
+		if ($this->input->post('Jurusan') == 'D3 Sistem Informasi') {
+			$id_jur = 1;
+		}elseif ($this->input->post('Jurusan') == 'S1 Ilmu Komputer') {
+			$id_jur = 2;
+		}elseif ($this->input->post('Jurusan') == 'S1 Desain Komunikasi Visual') {
+			$id_jur = 3;
+		}elseif ($this->input->post('Jurusan') == 'S1 Teknologi Informasi') {
+			$id_jur = 4;
+		}
+
 		$data = [
 			'id_user' => $this->input->post('id_user'),
 			'nama' => $this->input->post('nama'),
@@ -74,7 +87,8 @@ class Maba extends CI_Controller {
 			'alamat' => $this->input->post('alamat'),
 			'tanggal' => $this->input->post('tanggal'),
 			'noHp' => $this->input->post('noHP'),
-			'jurusan' => $this->input->post('Jurusan')
+			'jurusan' => $this->input->post('Jurusan'),
+			'id_jurusan' => $id_jur
 		];
 		$stats = [
 			'status' => 1];
@@ -96,6 +110,18 @@ class Maba extends CI_Controller {
 		public function edit()
 		{
 			$id = $this->input->post('id');
+			$id_jur;
+
+			if ($this->input->post('Jurusan') == 'D3 Sistem Informasi') {
+				$id_jur = 1;
+			}elseif ($this->input->post('Jurusan') == 'S1 Ilmu Komputer') {
+				$id_jur = 2;
+			}elseif ($this->input->post('Jurusan') == 'S1 Desain Komunikasi Visual') {
+				$id_jur = 3;
+			}elseif ($this->input->post('Jurusan') == 'S1 Teknologi Informasi') {
+				$id_jur = 4;
+			}
+
 			$data = [
 				'id' => $this->input->post('id'),
 				'nama' => $this->input->post('nama'),
@@ -103,11 +129,20 @@ class Maba extends CI_Controller {
 				'alamat' => $this->input->post('alamat'),
 				'tanggal' => $this->input->post('tanggal'),
 				'noHp' => $this->input->post('noHP'),
-				'jurusan' => $this->input->post('Jurusan')
+				'jurusan' => $this->input->post('Jurusan'),
+				'id_jurusan' => $id_jur
 			];
 			//var_dump($data);
 			$this->m_UAS->updateMaba($data, $id);
 			redirect('maba','refresh');
+
+		}
+
+		public function try()
+		{
+			$prodi = 'D3 Sistem Informasi';
+			$data['aku'] = $this->m_UAS->getJurusan($prodi); 
+			$this->load->view('maba/jurusan', $data);
 
 		}
 

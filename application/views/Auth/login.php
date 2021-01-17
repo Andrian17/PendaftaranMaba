@@ -2,12 +2,19 @@
 	<div class="container mt-5">
 		<div class="card mt-5 m-auto" style="width: 45%">
 			<div class="card-header">
+
 				Login
 				<?php if ( $this->session->flashdata('pesan') ) : ?>
 					<div class="alert alert-danger">
 						<?php echo $this->session->flashdata('pesan'); ?>
 					</div>
 				<?php endif; ?>
+				<?php if ( $this->session->flashdata('notif') ) : ?>
+					<div class="alert alert-success">
+						<?php echo $this->session->flashdata('notif'); ?>
+					</div>
+				<?php endif; ?>
+
 			</div>
 			<div class="card-body">
 				<form action="<?php echo site_url('Auth/prosesLogin') ?>" method="post">
