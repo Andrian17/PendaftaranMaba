@@ -15,6 +15,11 @@ class M_login extends CI_Model {
 
 	}
 
+	public function adduser($data)
+	{
+		return $this->db->insert('user', $data);;
+	}
+
 }
 
 /* End of file m_login.php */

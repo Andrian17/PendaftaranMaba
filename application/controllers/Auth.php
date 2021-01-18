@@ -40,21 +40,22 @@ class Auth extends CI_Controller {
 
 	public function daftar()
 	{
+		$this->load->model('m_login');
 
 		$this->form_validation->set_rules('kontak', 'no Hp/Email', 'required|numeric');
 		$this->form_validation->set_rules('username', 'username', 'required');
-		$this->form_validation->set_rules('password', 'password', 'required');
+		$this->form_validation->set_rules('password1', 'password', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$title['judul'] = 'daftar akun';
 			$this->load->view('template/header', $title);
-			$this->load->view('Auth/daftar');
+			$this->load->view('Auth/login');
 			$this->load->view('template/footer');
 		} else {
 
 			$kontak = $this->input->post('kontak', true);
 			$username = $this->input->post('username', true);
-			$password = md5($this->input->post('password', true));
+			$password = md5($this->input->post('password1', true));
 
 			$data = [
 				'id_user' => null,
@@ -65,7 +66,8 @@ class Auth extends CI_Controller {
 				'status' => 0
 			];
 
-			$this->db->insert('user', $data);
+			$this->m_login->adduser($data);
+
 			$this->session->set_flashdata('notif', 'user baru ditambahkan, login disini..!!');
 			redirect('Auth','refresh');
 		}

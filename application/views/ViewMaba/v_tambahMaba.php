@@ -10,11 +10,11 @@
 				<div class="mb-3">
 					<label for="Nama" class="form-label">Nama</label>
 					<input type="text" class="form-control" id="Nama" name="nama" autocomplete="off">
+					<small class="form-text text-danger"><?php echo form_error('nama'); ?></small>
 				</div>
 				<div class="mb-3">
 					<label for="Jenis Kelamin" class="form-label">Jenis Kelamin</label>
 					<select class="form-select form-select-sm" aria-label="Default select example" name="JenisKelamin">
-						<option selected>Jenis Kelamin</option>
 						<option value="Laki-Laki">Laki-Laki</option>
 						<option value="Perempuan">Perempuan</option>
 						
@@ -24,26 +24,27 @@
 				<div class="mb-3">
 					<label for="Alamat" class="form-label">Alamat</label>
 					<input type="text" class="form-control" id="Alamat" name="alamat" autocomplete="off">
+					<small class="form-text text-danger"><?php echo form_error('alamat'); ?></small>
 				</div>
 				<div class="mb-3">
 					<label>Date</label>
-					<input type="text" class="form-control" id="datepicker" name="tanggal" autocomplete="off">      
+				<input type="text" class="form-control" id="datepicker" name="tanggal" autocomplete="off">      <small class="form-text text-danger"><?php echo form_error('tanggal'); ?></small>
 				</div>
 				
 				<div class="mb-3">
 					<label for="No HP" class="form-label">No HP</label>
 					<input type="number" class="form-control" id="No HP" name="noHP" autocomplete="off">
+					<small class="form-text text-danger"><?php echo form_error('noHP'); ?></small>
 				</div>
 				<div class="mb-3">
 					<label for="Nama" class="form-label">Jurusan</label>
 						<select class="form-select form-select-sm" aria-label="Default select example" name="Jurusan">
-						<option selected>Jurusan</option>
 						<?php foreach ($maba as $key) : ?>
 							<option value="<?php echo $key->jurusan ?>"><?php echo $key->jurusan ?></option>
 						<?php endforeach; ?>
 					</select>
 				</div>
-				<button class="btn btn-success">simpan</button>
+				<button type="submit" class="btn btn-success">simpan</button>
 			</form>
 			
 			

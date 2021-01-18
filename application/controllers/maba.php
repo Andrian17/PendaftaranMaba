@@ -34,7 +34,7 @@ class Maba extends CI_Controller {
 
 		$cek_user = $this->db->get_where('user', ['id_user' =>$id])->row_array();
 		if ($cek_user['status'] == 0 ) {
-			redirect('maba/add','refresh');
+			redirect('maba/prosesAdd','refresh');
 			//var_dump($cek_user['status']);
 		}else{
 			//var_dump($id);
@@ -48,24 +48,6 @@ class Maba extends CI_Controller {
 		// var_dump($data['username']);
 	}
 
-	public function add()
-	{
-		$id = $this->session->userdata('id_user');
-		$cek_user = $this->db->get_where('user', ['id_user' =>$id])->row_array();
-		if ($cek_user['status'] == 0 ) {
-			$data['maba'] = $this->m_UAS->m_jurusan();
-			$data['id_user'] = $this->session->userdata('id_user');
-			$title['judul'] = 'Pendaftaran Mahasiswa';
-			$this->load->view('template/header', $title);
-			$this->load->view('template/nav');
-			$this->load->view('ViewMaba/v_tambahMaba', $data);
-			$this->load->view('template/footer');
-		}else{
-			redirect('maba','refresh');
-		}
-		
-		// var_dump($data['id_user']);
-	}
 
 	public function prosesAdd(){
 		$id_jur;
@@ -80,32 +62,50 @@ class Maba extends CI_Controller {
 			$id_jur = 4;
 		}
 
-		$data = [
-			'id_user' => $this->input->post('id_user'),
-			'nama' => $this->input->post('nama'),
-			'jenisKelamin' => $this->input->post('JenisKelamin'),
-			'alamat' => $this->input->post('alamat'),
-			'tanggal' => $this->input->post('tanggal'),
-			'noHp' => $this->input->post('noHP'),
-			'jurusan' => $this->input->post('Jurusan'),
-			'id_jurusan' => $id_jur
-		];
-		$stats = [
-			'status' => 1];
 
-			$id = $this->input->post('id_user');
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
+		$this->form_validation->set_rules('tanggal', 'tanggal', 'required');
+		$this->form_validation->set_rules('noHP', 'Telepon', 'required');
 
+		if ($this->form_validation->run() ==  false) {
+			$id = $this->session->userdata('id_user');
+			$cek_user = $this->db->get_where('user', ['id_user' =>$id])->row_array();
+			if ($cek_user['status'] == 0 ) {
+				$data['maba'] = $this->m_UAS->m_jurusan();
+				$data['id_user'] = $id;
+				$title['judul'] = 'Pendaftaran Mahasiswa';
+				$this->load->view('template/header', $title);
+				$this->load->view('template/nav');
+				$this->load->view('ViewMaba/v_tambahMaba', $data);
+				$this->load->view('template/footer');
+				//var_dump($id);
+			}
 
-			$this->m_UAS->m_TambahData($data);
-			$this->m_UAS->updateStats($stats, $id);
-			redirect('maba/index','refresh');
+		}else{
+			$data = [
+				'id_user' => $this->input->post('id_user'),
+				'nama' => $this->input->post('nama'),
+				'jenisKelamin' => $this->input->post('JenisKelamin'),
+				'alamat' => $this->input->post('alamat'),
+				'tanggal' => $this->input->post('tanggal'),
+				'noHp' => $this->input->post('noHP'),
+				'jurusan' => $this->input->post('Jurusan'),
+				'id_jurusan' => $id_jur
+			];
+			$stats = [
+				'status' => 1];
+
+				$id = $this->input->post('id_user');
+
+				$this->m_UAS->m_TambahData($data);
+				$this->m_UAS->updateStats($stats, $id);
+				$this->session->set_flashdata('pesan', 'Ditambahkan');
+				redirect('maba','refresh');
+			}
+
 		}
 
-		public function daftar()
-		{
-
-			$this->load->view('maba', $data);
-		}
 
 		public function edit()
 		{
@@ -122,19 +122,34 @@ class Maba extends CI_Controller {
 				$id_jur = 4;
 			}
 
-			$data = [
-				'id' => $this->input->post('id'),
-				'nama' => $this->input->post('nama'),
-				'jenisKelamin' => $this->input->post('JenisKelamin'),
-				'alamat' => $this->input->post('alamat'),
-				'tanggal' => $this->input->post('tanggal'),
-				'noHp' => $this->input->post('noHP'),
-				'jurusan' => $this->input->post('Jurusan'),
-				'id_jurusan' => $id_jur
-			];
-			//var_dump($data);
-			$this->m_UAS->updateMaba($data, $id);
-			redirect('maba','refresh');
+
+			$this->form_validation->set_rules('nama', 'Nama', 'required');
+			$this->form_validation->set_rules('alamat', 'Alamat', 'required');
+			$this->form_validation->set_rules('tanggal', 'tanggal', 'required');
+			$this->form_validation->set_rules('noHP', 'Telepon', 'required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$this->session->set_flashdata('notif', 'Data Tidak di Update, cek data terlebih dahulu, sebelum konfirmasi');
+				redirect('maba','refresh');
+
+			} else {
+				$data = [
+					'id' => $this->input->post('id'),
+					'nama' => $this->input->post('nama'),
+					'jenisKelamin' => $this->input->post('JenisKelamin'),
+					'alamat' => $this->input->post('alamat'),
+					'tanggal' => $this->input->post('tanggal'),
+					'noHp' => $this->input->post('noHP'),
+					'jurusan' => $this->input->post('Jurusan'),
+					'id_jurusan' => $id_jur
+				];
+				//var_dump($data);
+				$this->m_UAS->updateMaba($data, $id);
+				redirect('maba','refresh');
+			}
+
+
+			
 
 		}
 

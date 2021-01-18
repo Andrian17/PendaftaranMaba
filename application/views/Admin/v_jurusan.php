@@ -1,18 +1,5 @@
 <?php $con = mysqli_connect('localhost', 'root', '', 'db_web_lanjut'); ?>
 
-<?php 
-$prodi = mysqli_query($con,"select * from maba where id_jurusan='2'");
-$key2 = mysqli_num_rows($prodi);
-?>
-<?php 
-$prodi = mysqli_query($con,"select * from maba where jurusan='S1 Desain Komunikasi Visual'");
-$key3 = mysqli_num_rows($prodi);
-?>
-<?php 
-$prodi = mysqli_query($con,"select * from maba where jurusan='S1 Teknologi Informasi'");
-$key4 = mysqli_num_rows($prodi);
-?>
-
 
 
 <div class="container container-fluid">

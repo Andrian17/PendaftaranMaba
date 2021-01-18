@@ -136,7 +136,7 @@ class admin extends CI_Controller {
 	public function listMabaByJur($jur)
 	{
 		$data['aku'] = $this->db->get_where('maba', ['id_jurusan' => $jur])->result();
-		$data['maba'] = $this->m_UAS->getAll();
+		// $data['maba'] = $this->m_UAS->getAll();
 		//var_dump($data['aku']);
 		$data['title'] = 'Mahasiswa By Jurusan';
 		$this->load->view('template/dashHead', $data);
