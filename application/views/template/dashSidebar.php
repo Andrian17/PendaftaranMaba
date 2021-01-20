@@ -2,8 +2,11 @@
   $con = mysqli_connect('localhost', 'root', '', 'db_web_lanjut'); 
   $prodi = mysqli_query($con,"select * from maba where confirm='0'");
   $key1 = mysqli_num_rows($prodi);
-
+ // $db = $this->db->get_where('maba', ['confirm' => 0]);
+ //  $db = num_rows();
  ?>
+
+
       <!-- Sidebar -->
       <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -81,13 +84,14 @@
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
   aria-expanded="true" aria-controls="collapsePages">
-  <i class="fas fa-fw fa-folder"></i>
-  <span>Laporan</span>
+  <i class="fas fa-user-cog"></i>
+
+  <span>Manajemen USER</span>
 </a>
 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
   <div class="bg-white py-2 collapse-inner rounded">
-     <h6 class="collapse-header">Laporan:</h6>
-     <a class="collapse-item" href="login.html">Login</a>
+     <h6 class="collapse-header">List user:</h6>
+     <a class="collapse-item" href="<?php echo site_url('admin/users') ?>">users</a>
      <div class="collapse-divider"></div>
  </div>
 </div>

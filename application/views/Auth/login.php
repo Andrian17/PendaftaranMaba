@@ -14,6 +14,11 @@
 						<?php echo $this->session->flashdata('notif'); ?>
 					</div>
 				<?php endif; ?>
+				<?php if ( $this->session->flashdata('danger') ) : ?>
+					<div class="alert alert-danger">
+						<?php echo $this->session->flashdata('danger'); ?>
+					</div>
+				<?php endif; ?>
 
 			</div>
 			<div class="card-body">

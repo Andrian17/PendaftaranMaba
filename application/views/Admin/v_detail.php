@@ -26,6 +26,10 @@
 					<td><?php echo $key['jenisKelamin']; ?></td>
 				</tr>
 				<tr>
+					<td>Alamat</td>
+					<td><?php echo $key['alamat']; ?></td>
+				</tr>
+				<tr>
 					<td>Tanggal Lahir</td>
 					<td><?php echo $key['tanggal']; ?></td>
 				</tr>
@@ -47,7 +51,7 @@
 				</tr>
 				<?php if ($key['confirm'] == 0): ?>
 				<tr>
-					<td colspan="2"> <a href="<?php echo site_url('admin/getById/'.$key['id']) ?>" class="container badge badge-danger">confirmasi</a></td>
+					<td colspan="2"> <a href="<?php echo site_url('admin/getById/'.$key['id']) ?>" class="container badge badge-danger tombol-confirm">confirmasi</a></td>
 				</tr>
 				<?php endif ?>
 				

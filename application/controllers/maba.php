@@ -33,6 +33,7 @@ class Maba extends CI_Controller {
 		$data['key'] = $this->m_UAS->getByID($id);
 
 		$cek_user = $this->db->get_where('user', ['id_user' =>$id])->row_array();
+		// $status = $this->session->userdata('status');
 		if ($cek_user['status'] == 0 ) {
 			redirect('maba/prosesAdd','refresh');
 			//var_dump($cek_user['status']);
@@ -145,6 +146,7 @@ class Maba extends CI_Controller {
 				];
 				//var_dump($data);
 				$this->m_UAS->updateMaba($data, $id);
+				$this->session->set_flashdata('notif', 'update');
 				redirect('maba','refresh');
 			}
 

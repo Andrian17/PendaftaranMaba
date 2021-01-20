@@ -8,6 +8,29 @@ if (flashData) {
     });
 }
 
+//cinfirm edit
+// tombol-hapus
+// $('.btn-conf').on('click', function (e) {
+
+//     e.preventDefault();
+//     const href = $(this).attr('button');
+//     const control = $(this).attr('form');
+//     Swal({
+//         title: 'Apakah anda yakin',
+//         text: "data mahasiswa akan edit",
+//         type: 'question',
+//         showCancelButton: true,
+//         confirmButtonColor: '#3085d6',
+//         cancelButtonColor: '#d33',
+//         confirmButtonText: 'edit!'
+//     }).then((result) => {
+//         if (result.value) {
+//             document.location.href
+//         }
+//     })
+
+// });
+
 // tombol-hapus
 $('.tombol-hapus').on('click', function (e) {
 
@@ -29,6 +52,32 @@ $('.tombol-hapus').on('click', function (e) {
     })
 
 });
+
+//confirm 
+$('.tombol-confirm').on('click', function (e) {
+
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal({
+        title: 'Apakah anda yakin',
+        text: "konfirmasi data Mahasiswa",
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'konfirmasi!'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+    })
+
+});
+
+//edit cofirm
+
+
 
 // AUTH
   // MENDAFTAR

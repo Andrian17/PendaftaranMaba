@@ -4,6 +4,7 @@
 			<h5>Selamat datang <?php echo $username; ?></h5>
 		</div>
 		<div class="card-body">
+			<div id="flash-data"  data-flashdata="<?= $this->session->flashdata('notif'); ?>"></div>
 			<?php if ($key['confirm'] == 0) { ?>
 				<div class="alert alert-danger" role="alert">
 					Silahkan Lakukan Pendaftran Ulang..!!
@@ -53,11 +54,11 @@
 					</tr>
 				</tbody>
 			</table>
-			<?php if ($this->session->flashdata('notif')): ?>
+			<!-- <?php if ($this->session->flashdata('notif')): ?>
 				<div class="alert alert-danger" role="alert">
 					<?php echo $this->session->flashdata('notif') ?>
 				</div>
-			<?php endif ?>
+			<?php endif ?> -->
 		</div>
 		<div class="card-footer">
 			<a href="<?php echo site_url('Auth\logout') ?>" class="btn btn-danger" onclick="confirmation()">logout</a>
@@ -72,6 +73,7 @@
 	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
+
 				<div class="modal-header">
 					<h5 class="modal-title" id="staticBackdropLabel">Edit Data</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -122,7 +124,7 @@
 						<!-- <button class="btn btn-success">simpan</button> -->
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary" onclick="confirmation()">simpan</button>
+							<button type="submit" class="btn btn-primary btn-conf">simpan</button>
 						</div>
 					</form>
 				</div>

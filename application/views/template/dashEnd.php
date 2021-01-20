@@ -46,9 +46,11 @@ aria-hidden="true">
     <!-- date picker -->
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-
+    <!-- <script src="<?php echo base_url() ?>assets/js/sb-admin-2.min.js"></script> -->
+<!-- sewwt alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/myjs1.js"></script>
 
 <script>
   $('#datepicker').datepicker({

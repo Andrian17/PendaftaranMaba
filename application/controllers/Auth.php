@@ -42,15 +42,17 @@ class Auth extends CI_Controller {
 	{
 		$this->load->model('m_login');
 
-		$this->form_validation->set_rules('kontak', 'no Hp/Email', 'required|numeric');
-		$this->form_validation->set_rules('username', 'username', 'required');
+		$this->form_validation->set_rules('kontak', 'no Hp', 'required|numeric');
+		$this->form_validation->set_rules('username', 'username', 'required|is_unique[user.username]');
 		$this->form_validation->set_rules('password1', 'password', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$title['judul'] = 'daftar akun';
+			$this->session->set_flashdata('danger', 'gagal menambahkan user, periksa data anda');
 			$this->load->view('template/header', $title);
 			$this->load->view('Auth/login');
 			$this->load->view('template/footer');
+			$this->session->set_flashdata('danger', 'gagal menambahkan user, periksa data anda');
 		} else {
 
 			$kontak = $this->input->post('kontak', true);

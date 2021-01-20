@@ -26,11 +26,11 @@
 								<td><?php echo $key->nama ?></td>
 								<td><?php echo $key->jurusan ?></td>
 							<?php if ($key->confirm == 0){ ?>
-								<td><a href="<?php echo site_url('admin/getById/'.$key->id) ?>" class="badge badge-danger">confirmasi</a></td>
+								<td><a href="<?php echo site_url('admin/getById/'.$key->id) ?>" class="badge badge-danger tombol-confirm">confirmasi</a></td>
 							<?php }else{ ?>
 								<td><span class="badge badge-success">Lulus</span></td>
 							<?php } ?>
-								<td><a href="<?php echo site_url('admin/detail/'.$key->id); ?>" class="badge badge-info">Detail</a> <a href="<?php echo site_url('admin/delete/'.$key->id) ?>" class="badge badge-danger">Hapus</a></td>
+								<td><a href="<?php echo site_url('admin/detail/'.$key->id); ?>" class="badge badge-info ">Detail</a> <a href="<?php echo site_url('admin/delete/'.$key->id) ?>" class="badge badge-danger tombol-hapus">Hapus</a></td>
 								
 							</tr>
 						<?php endforeach; ?>
